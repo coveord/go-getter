@@ -17,6 +17,11 @@ func (c *Client) Configure(opts ...ClientOption) error {
 		c.Ctx = context.Background()
 	}
 
+	c.FileMatches = func(string, string) bool {
+		return true
+	}
+
+
 	// Store the options used to configure this client.
 	c.Options = opts
 

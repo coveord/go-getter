@@ -83,6 +83,10 @@ type Client struct {
 	// Disable symlinks
 	DisableSymlinks bool
 
+	// FileMatches allows to filter files that should be fetched from a source directory
+	// By default, all files are matched
+	FileMatches FileMatcher
+
 	Options []ClientOption
 }
 
