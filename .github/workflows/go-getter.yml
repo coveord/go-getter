@@ -5,6 +5,9 @@ on: [push]
 env:
   TEST_RESULTS_PATH: /tmp/test-results
 
+permissions:
+  contents: read
+
 jobs:
 
   linux-tests:
@@ -19,6 +22,11 @@ jobs:
       id-token: write
       contents: read
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: Setup go
         uses: actions/setup-go@93397bea11091df50f3d7e59dc26a7711a8bcfbe # v4.1.0
         with:
@@ -99,6 +107,11 @@ jobs:
       id-token: write
       contents: read
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: Run git config #Windows-only
         run: git config --global core.autocrlf false
 
