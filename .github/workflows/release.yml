@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@v2
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
         with:
           egress-policy: audit
 
@@ -29,7 +29,7 @@ jobs:
         with:
           go-version: '^1.15'
       - name: Setup signore
-        uses: hashicorp/setup-signore@v1
+        uses: hashicorp/setup-signore@5de0fa6f50728d54c9eb9a782db4e75e4182a5ea # v1.0.1
         with:
           github-token: ${{secrets.SIGNORE_TOKEN}}
     
